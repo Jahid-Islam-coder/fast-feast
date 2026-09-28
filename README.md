@@ -15,19 +15,27 @@ FastFeast provides an end-to-end food ordering experience, starting from user au
 The main user flow looks like this
 
 Sign In / Sign Up
+
        ↓
 Set Delivery Location
+
        ↓
 Find Nearby Restaurants
+
        ↓
 Browse Food
+
        ↓
 Add to Cart
+
        ↓
 Checkout
+
        ↓
 Stripe Payment
+
        ↓
 Place Order
+
        ↓
 Real-Time Order Tracking
