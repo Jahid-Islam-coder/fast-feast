@@ -1,17 +1,33 @@
-# fastfeast
+🍔 FastFeast — Food Delivery App
 
-A new Flutter project.
+FastFeast is a food delivery app built with Flutter. Users can find nearby restaurants, browse their menus, search for food, add items to a cart, place orders, and track their order status.
 
-## Getting Started
+I built this project to get practical experience with Flutter and Firebase while working on a larger application with features such as location-based restaurant discovery, payment processing, cart management, and real-time order updates.
 
-This project is a starting point for a Flutter application.
+Note: FastFeast is a portfolio project built for learning and demonstrating my Flutter development skills.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+📱 Project Overview
+
+FastFeast provides an end-to-end food ordering experience, starting from user authentication and location selection and continuing through restaurant discovery, food selection, checkout, payment, and real-time order tracking.
+
+The main user flow looks like this
+
+Sign In / Sign Up
+       ↓
+Set Delivery Location
+       ↓
+Find Nearby Restaurants
+       ↓
+Browse Food
+       ↓
+Add to Cart
+       ↓
+Checkout
+       ↓
+Stripe Payment
+       ↓
+Place Order
+       ↓
+Real-Time Order Tracking
