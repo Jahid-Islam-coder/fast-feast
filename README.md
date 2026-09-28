@@ -10,32 +10,26 @@ Note: FastFeast is a portfolio project built for learning and demonstrating my F
 
 📱 Project Overview
 
-FastFeast provides an end-to-end food ordering experience, starting from user authentication and location selection and continuing through restaurant discovery, food selection, checkout, payment, and real-time order tracking.
+The main idea of FastFeast is to provide a complete food ordering experience, starting from user authentication and location selection and ending with checkout, payment, and order tracking.
 
 The main user flow looks like this
 
+```text
 Sign In / Sign Up
-
        ↓
 Set Delivery Location
-
        ↓
 Find Nearby Restaurants
-
        ↓
 Browse Food
-
        ↓
 Add to Cart
-
        ↓
 Checkout
-
        ↓
 Stripe Payment
-
        ↓
 Place Order
-
        ↓
 Real-Time Order Tracking
+```
