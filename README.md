@@ -57,3 +57,35 @@ Order history
 Saved delivery addresses
 
 The app uses an AuthWrapper to check the user's authentication state and decide which part of the application should be displayed.
+
+
+
+
+
+📍 Location & Delivery Address
+
+Restaurant discovery is based on the user's location.
+
+Users can:
+
+Get their current location using GPS
+Select delivery address from google map
+Add custom delivery address
+Manage their delivery address
+Find restaurants within a specific radius
+
+I used Geofire with Firebase Realtime Database to perform location-based restaurant queries.
+
+For example:
+
+```text
+User Location
+     ↓
+Latitude / Longitude
+     ↓
+Geofire Radius Query
+     ↓
+Nearby Restaurants
+
+This allows the restaurant list to change based on the user's selected location.
+```
