@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "30900045260",
+    "firebase_url": "https://fast-feast-cb407-default-rtdb.firebaseio.com",
+    "project_id": "fast-feast-cb407",
+    "storage_bucket": "fast-feast-cb407.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30900045260:android:43b09a01b1265baa35c969",
+        "android_client_info": {
+          "package_name": "example.fastfeast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30900045260-gdebtvoobo77jo5s9t17mii2avt33jgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBImAdp76_P2HRp5xB00BzQIiPWRuyBwwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30900045260-gdebtvoobo77jo5s9t17mii2avt33jgj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "30900045260-gkbpt188jc1hi030in2655kgefvppo34.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fastfeast"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
