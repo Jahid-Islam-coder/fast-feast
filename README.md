@@ -352,7 +352,7 @@ Authentication state
 
 Firebase Realtime Database
 
-Used for real-time application data and location-related restaurant discovery.
+Used for real-time location-based restaurant discovery, as well as application data such as restaurant, food, user, and order details.
 
 Geofire
 
