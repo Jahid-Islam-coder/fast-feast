@@ -284,3 +284,13 @@ These loading states provide users with immediate visual feedback while asynchro
 📱 Responsive Layout
 
 FastFeast uses flutter_screenutil to adapt layouts across different screen sizes, including phones and tablets to avoid screen overflow errors.
+
+
+
+
+
+👋 Onboarding
+
+FastFeast includes a multi-page onboarding experience for first-time users.
+
+The onboarding experience introduces the main concept of the application before users enter the main app.
