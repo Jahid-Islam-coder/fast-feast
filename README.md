@@ -294,3 +294,40 @@ FastFeast uses flutter_screenutil to adapt layouts across different screen sizes
 FastFeast includes a multi-page onboarding experience for first-time users.
 
 The onboarding experience introduces the main concept of the application before users enter the main app.
+
+
+
+
+
+
+🏗️ Application Structure
+
+I organized the project into separate folders for views, providers/controllers, services, models, and reusable UI components.
+
+The current structure looks like this:
+
+```text
+lib/
+├── common/
+│   └── shimmers/
+├── constants/
+├── controllers/
+│   ├── provider/
+│   └── services/
+├── models/
+├── views/
+│   ├── address/
+│   ├── auth/
+│   ├── bottom_navigation_bar/
+│   ├── cart/
+│   ├── food/
+│   ├── home/
+│   │   └── widgets/
+│   ├── onboarding/
+│   ├── profile/
+│   └── search/
+├── firebase_options.dart
+└── main.dart
+```
+
+The general idea is to keep UI code inside views, application state inside providers, reusable Firebase/API-related logic inside services, and data models inside models.
