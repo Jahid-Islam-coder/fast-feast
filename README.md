@@ -509,3 +509,15 @@ There are still many areas that could be extended in the future, like:
 Jahid Islam
 
 Flutter Developer interested in building practical mobile applications with Flutter, Dart, Firebase, and modern application development technologies.
+
+
+
+
+
+⭐ About This Project
+
+FastFeast is one of my practical Flutter portfolio projects and I built it to practice working with a bigger application containing multiple features together.
+
+It combines authentication, location services, restaurant discovery, food ordering, payments, and order tracking into one application.
+
+If you found the project interesting, feel free to ⭐ the repository.
