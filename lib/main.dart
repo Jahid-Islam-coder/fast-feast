@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'constants/stripe_constants.dart';
 import 'controllers/provider/auth_provider.dart';
 import 'controllers/provider/bottom_navigation_bar_provider.dart';
 import 'controllers/provider/category_provider.dart';
@@ -25,7 +26,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   
-  // Stripe.publishableKey = StripeConstants.publishableKey;
+  Stripe.publishableKey = StripeConstants.publishableKey;
   Stripe.merchantIdentifier = 'merchant.com.example.fastfeast';
   await Stripe.instance.applySettings();
 
