@@ -481,3 +481,21 @@ Orders & Tracking
 The repository is public, so sensitive credentials and private configuration values are not included.
 
 This public repository is intended to Show the application's architecture, implementation approach, and Flutter development practices without exposing private credentials or secrets.
+
+
+
+
+
+📌 Project Status
+
+As of now FastFeast is a portfolio project with the main customer-side food ordering flow implemented.
+
+There are still many areas that could be extended in the future, like:
+
+* Ai based food recommendation
+* Restaurant-side management
+* Delivery driver functionality
+* Push notifications
+* Reviews
+* Favorites/wishlist
+* More advanced restaurant filtering
