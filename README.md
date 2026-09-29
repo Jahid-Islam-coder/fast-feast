@@ -499,3 +499,13 @@ There are still many areas that could be extended in the future, like:
 * Reviews
 * Favorites/wishlist
 * More advanced restaurant filtering
+
+
+
+
+
+👨‍💻 Author
+
+Jahid Islam
+
+Flutter Developer interested in building practical mobile applications with Flutter, Dart, Firebase, and modern application development technologies.
