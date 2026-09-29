@@ -254,3 +254,25 @@ FastFeast has a visual order tracking experience that shows the different stages
 🟢 Canceled
 ```
 The tracking screen updates according to the current order status stored in Firebase.
+
+
+
+
+
+🎨 UI / UX
+
+I spent some time on the loading and overall browsing experience instead of showing empty screens while data is loading.
+
+Shimmer Loading
+
+Shimmer placeholders are used in different parts of the app, including:
+
+* Food lists
+* Food grids
+* Nearby restaurants
+* Categories
+* Food details
+* Network images
+* View Oder Page shimmer
+
+These loading states provide users with immediate visual feedback while asynchronous data is being fetched.
