@@ -129,15 +129,13 @@ Food Details
 
 The food details page includes:
 
-Food image  
-
-Food name  
-
-Description
-Price
-Quantity selector
-Add to Cart
-Buy Now
+* Food image
+* Food name
+* Description
+* Price
+* Quantity selector
+* Add to Cart
+* Buy Now
 
 I also created reusable food cards so items can be added to the cart directly from restaurant menus and recommendation sections.
 
