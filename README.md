@@ -235,3 +235,21 @@ The order history screen provides:
 * Pricing information
 * Delivery information
 * Current/old order status
+
+
+
+
+
+🚚 Real-Time Order Tracking
+
+FastFeast has a visual order tracking experience that shows the different stages of a delivery.
+
+🟢 Placed
+   ↓
+🟢 In Progress
+   ↓
+🟢 Completed
+   ↓
+🟢 Canceled
+
+The tracking screen updates according to the current order status stored in Firebase.
