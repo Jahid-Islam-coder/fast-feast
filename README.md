@@ -129,9 +129,9 @@ Food Details
 
 The food details page includes:
 
-Food image \
+Food image  
 
-Food name \
+Food name  
 
 Description
 Price
