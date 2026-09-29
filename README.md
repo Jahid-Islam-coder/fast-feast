@@ -244,15 +244,13 @@ The order history screen provides:
 
 FastFeast has a visual order tracking experience that shows the different stages of a delivery.
 
+```text
 🟢 Placed
-   ↓  
-   
+   ↓
 🟢 In Progress
-   ↓  
-   
+   ↓
 🟢 Completed
-   ↓  
-   
+   ↓
 🟢 Canceled
-
+```
 The tracking screen updates according to the current order status stored in Firebase.
