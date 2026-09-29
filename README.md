@@ -185,3 +185,23 @@ The checkout page has:
 
 
 
+💳 Stripe Payment
+
+FastFeast uses Stripe for card payments.
+
+The basic flow is:
+
+```text
+Cart
+ ↓
+Checkout
+ ↓
+Payment
+ ↓
+Stripe
+ ↓
+Payment Result
+ ↓
+Order
+```
+Sensitive payment credentials and configuration values are not included in the public repository.
