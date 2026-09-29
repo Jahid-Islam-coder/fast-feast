@@ -4,7 +4,8 @@ FastFeast is a food delivery app built with Flutter. Users can find nearby resta
 
 I built this project to get practical experience with Flutter and Firebase while working on a larger application with features such as location-based restaurant discovery, payment processing, cart management, and real-time order updates.
 
-Note: FastFeast is a portfolio project built for learning and demonstrating my Flutter development skills.
+Note: FastFeast is a portfolio project built for learning and demonstrating my Flutter development skills.  
+
 
 
 
@@ -40,6 +41,7 @@ Real-Time Order Tracking
 
 
 
+
 ✨ Features
 
 🔐 Authentication & Profile
@@ -56,7 +58,8 @@ FastFeast uses Firebase Authentication for user accounts.
 * Order history
 * Saved delivery addresses
 
-The app uses an AuthWrapper to check the user's authentication state and decide which part of the application should be displayed.
+The app uses an AuthWrapper to check the user's authentication state and decide which part of the application should be displayed.  
+
 
 
 
@@ -87,7 +90,8 @@ Geofire Radius Query
      ↓
 Nearby Restaurants
 ```
-This allows the restaurant list to change based on the user's selected location.
+This allows the restaurant list to change based on the user's selected location.  
+
 
 
 
@@ -117,7 +121,8 @@ The restaurant listing includes information such as:
 * Ratings
 * Complete restaurant menu
 
-Each restaurant also has its own detail page where users can view the available food items.
+Each restaurant also has its own detail page where users can view the available food items.  
+
 
 
 
@@ -139,7 +144,8 @@ The food details page includes:
 * Add to Cart
 * Buy Now
 
-I also created reusable food cards so items can be added to the cart directly from restaurant menus and recommendation sections.
+I also created reusable food cards so items can be added to the cart directly from restaurant menus and recommendation sections.  
+
 
 
 
