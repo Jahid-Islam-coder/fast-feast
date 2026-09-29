@@ -428,7 +428,7 @@ While building FastFeast, I worked with:
 
 🚀 What I Learned
 
-One of the biggest things I learned from this project was how different parts of a Flutter application start interacting as the project becomes larger.
+One of the biggest things I learned from this project was how different parts of a Flutter application start interacting as the project becomes bigger.
 
 Some of the key areas explored during development were:
 
@@ -445,3 +445,29 @@ Payment Integration
 Integrating Stripe provided me a practical experience with external payment services and the additional security considerations needed when handling payments and transactions.
 
 Overall, FastFeast helped me understand how to build structure and connect multiple features into one complete application.
+
+
+
+
+
+📸 Screenshots
+
+Authentication
+
+*
+
+Home & Restaurant Discovery
+
+*
+
+Restaurant & Food Details
+
+*
+
+Cart & Checkout
+
+*
+
+Orders & Tracking
+
+*
