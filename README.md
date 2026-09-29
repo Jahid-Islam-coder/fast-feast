@@ -240,7 +240,7 @@ The order history screen provides:
 
 
 
-🚚 Real-Time Order Tracking
+🚚 Real-Time Order Tracking On Google Map
 
 FastFeast has a visual order tracking experience that shows the different stages of a delivery.
 
@@ -330,4 +330,44 @@ lib/
 └── main.dart
 ```
 
-The general idea is to keep UI code inside views, application state inside providers, reusable Firebase/API-related logic inside services, and data models inside models.
+This keeps business logic out of individual UI widgets and makes the application easier to maintain.
+
+
+
+
+
+🛠️ Tech Stack
+
+Frontend
+
+* Flutter
+* Dart
+* Material UI
+* flutter_screenutil
+
+
+State Management
+
+* Provider
+
+Backend
+
+* Firebase Authentication
+* Firebase Realtime Database
+
+Location
+
+* Device GPS
+* Geolocation
+* Geofire
+
+Payment
+
+* Stripe
+
+UI
+
+* Shimmer loading
+* Responsive layouts
+* Network image loading
+* Onboarding carousel
