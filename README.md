@@ -46,15 +46,15 @@ Real-Time Order Tracking
 
 FastFeast uses Firebase Authentication for user accounts.
 
-Sign in
-Sign up
-Google Sign-In
-Forgot password
-Authentication state handling
-User profile
-Account settings
-Order history
-Saved delivery addresses
+
+* Sign in
+* Sign up
+* Google authentication
+* Forgot password
+* Authentication state handling
+* User profile management
+* Order history
+* Saved delivery addresses
 
 The app uses an AuthWrapper to check the user's authentication state and decide which part of the application should be displayed.
 
@@ -68,11 +68,11 @@ Restaurant discovery is based on the user's location.
 
 Users can:
 
-Get their current location using GPS
-Select delivery address from google map
-Add custom delivery address
-Manage their delivery address
-Find restaurants within a specific radius
+* Get their current location using GPS
+* Select a custom delivery address
+* Location search and address selection
+* Manage their delivery address
+* Find restaurants within a specific radius
 
 I used Geofire with Firebase Realtime Database to perform location-based restaurant queries.
 
@@ -108,12 +108,14 @@ Categories can be used to filter the available restaurants and food items nearby
 
 The restaurant listing includes information such as:
 
-Restaurant image
-Restaurant name
-Address
-Rating
-Distance/location information
-Delivery time
+
+* Nearby restaurant listing
+* Distance-based restaurant discovery
+* Restaurant images
+* Restaurant name
+* Address
+* Ratings
+* Complete restaurant menu
 
 Each restaurant also has its own detail page where users can view the available food items.
 
