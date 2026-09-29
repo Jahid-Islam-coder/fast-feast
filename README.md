@@ -205,3 +205,33 @@ Payment Result
 Order
 ```
 Sensitive payment credentials and configuration values are not included in the public repository.
+
+
+
+
+
+📦 Order Management
+
+After completing checkout, FastFeast stores the order information in Firebase.
+
+Order records contain information like:
+
+* Ordered items
+* Quantities
+* Prices
+* Order timestamp
+* Delivery address
+* Order status
+
+Users can view their old purchases through the view order section in profile page.
+
+View Order
+
+The order history screen provides:
+
+* Old orders
+* Order details
+* Ordered food items
+* Pricing information
+* Delivery information
+* Current/old order status
