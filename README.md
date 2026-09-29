@@ -155,3 +155,28 @@ FastFeast has a search page for finding restaurants and food items.
 * Display nearby search results
 
 Search-related state and logic are handled through SearchProvider.
+
+
+
+
+
+🛒 Cart & Checkout
+
+The cart allows users to review and modify their order before checkout.
+
+Users can:
+
+* Add food items
+* Increase or decrease quantity
+* Remove items
+* View the subtotal
+* Review their order
+
+The checkout page has:
+
+* Delivery address
+* Cart items
+* Item prices
+* Delivery fee
+* Total amount
+* Payment option
