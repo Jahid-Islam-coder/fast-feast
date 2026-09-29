@@ -471,3 +471,13 @@ Cart & Checkout
 Orders & Tracking
 
 *
+
+
+
+
+
+🔒 Security
+
+The repository is public, so sensitive credentials and private configuration values are not included.
+
+This public repository is intended to Show the application's architecture, implementation approach, and Flutter development practices without exposing private credentials or secrets.
