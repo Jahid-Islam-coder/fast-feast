@@ -10,7 +10,6 @@ Note: FastFeast is a portfolio project built for learning and demonstrating my F
 
 
 
-
 📱 Project Overview
 
 The main idea of FastFeast is to provide a complete food ordering experience, starting from user authentication and location selection and ending with checkout, payment, and order tracking.
@@ -41,7 +40,6 @@ Real-Time Order Tracking
 
 
 
-
 ✨ Features
 
 🔐 Authentication & Profile
@@ -59,7 +57,6 @@ FastFeast uses Firebase Authentication for user accounts.
 * Saved delivery addresses
 
 The app uses an AuthWrapper to check the user's authentication state and decide which part of the application should be displayed.  
-
 
 
 
@@ -96,7 +93,6 @@ This allows the restaurant list to change based on the user's selected location.
 
 
 
-
 🏪 Restaurant Discovery
 
 Users can browse restaurants based on their location and food categories.
@@ -127,7 +123,6 @@ Each restaurant also has its own detail page where users can view the available 
 
 
 
-
 🍔 Food & Recommendations
 
 Users can browse food from every restaurants also recommended items from different restaurants.
@@ -150,5 +145,13 @@ I also created reusable food cards so items can be added to the cart directly fr
 
 
 
+🔍 Search
 
+FastFeast has a search page for finding restaurants and food items.
 
+Search restaurants
+Search food items
+Filter results while typing
+Display nearby search results
+
+Search-related state and logic are handled through SearchProvider.
