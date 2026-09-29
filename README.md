@@ -336,6 +336,32 @@ This keeps business logic out of individual UI widgets and makes the application
 
 
 
+🗄️ Backend & Data
+
+FastFeast uses Firebase services for backend functionality.
+
+Firebase Authentication
+
+Used for:
+
+User registration
+Login
+Google authentication
+Forgot password
+Authentication state
+
+Firebase Realtime Database
+
+Used for real-time application data and location-related restaurant discovery.
+
+Geofire
+
+Used for geographic queries to discover restaurants within a specified radius.
+
+
+
+
+
 🛠️ Tech Stack
 
 Frontend
