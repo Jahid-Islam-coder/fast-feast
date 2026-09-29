@@ -391,9 +391,33 @@ Payment
 
 * Stripe
 
-UI
+UI / UX
 
 * Shimmer loading
 * Responsive layouts
 * Network image loading
 * Onboarding carousel
+
+
+
+
+
+🔑 Things I Practiced in This Project
+
+While building FastFeast, I worked with:
+
+Firebase Authentication
+Google Sign-In
+Provider state management
+Firebase Realtime Database
+Location services
+Geofire radius queries
+Delivery address management
+Cart state management
+Stripe payments
+Order management
+Real-time order tracking and status
+Reusable Flutter widgets
+Responsive layouts
+Loading and error states
+Shimmer effects
