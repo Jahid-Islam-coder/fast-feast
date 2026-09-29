@@ -180,6 +180,7 @@ The checkout page has:
 * Delivery fee
 * Total amount
 * Payment option
+* Restaurant rating option
 
 
 
