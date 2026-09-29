@@ -180,3 +180,8 @@ The checkout page has:
 * Delivery fee
 * Total amount
 * Payment option
+
+
+
+
+
