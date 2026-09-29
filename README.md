@@ -276,3 +276,11 @@ Shimmer placeholders are used in different parts of the app, including:
 * View Oder Page shimmer
 
 These loading states provide users with immediate visual feedback while asynchronous data is being fetched.
+
+
+
+
+
+📱 Responsive Layout
+
+FastFeast uses flutter_screenutil to adapt layouts across different screen sizes, including phones and tablets to avoid screen overflow errors.
