@@ -149,9 +149,9 @@ I also created reusable food cards so items can be added to the cart directly fr
 
 FastFeast has a search page for finding restaurants and food items.
 
-Search restaurants
-Search food items
-Filter results while typing
-Display nearby search results
+* Search restaurants
+* Search food items
+* Filter results while typing
+* Display nearby search results
 
 Search-related state and logic are handled through SearchProvider.
