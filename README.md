@@ -86,6 +86,61 @@ Latitude / Longitude
 Geofire Radius Query
      ↓
 Nearby Restaurants
-
-This allows the restaurant list to change based on the user's selected location.
 ```
+This allows the restaurant list to change based on the user's selected location.
+
+
+
+
+
+🏪 Restaurant Discovery
+
+Users can browse restaurants based on their location and food categories.
+
+Some of the available categories are:
+
+🍔 Burgers
+🍕 Pizza
+🍝 Pasta
+🍰 Cake
+
+Categories can be used to filter the available restaurants and food items nearby.
+
+The restaurant listing includes information such as:
+
+Restaurant image
+Restaurant name
+Address
+Rating
+Distance/location information
+Delivery time
+
+Each restaurant also has its own detail page where users can view the available food items.
+
+
+
+
+
+🍔 Food & Recommendations
+
+Users can browse food from every restaurants also recommended items from different restaurants.
+
+Food Details
+
+The food details page includes:
+
+Food image
+Food name
+Description
+Price
+Quantity selector
+Add to Cart
+Buy Now
+
+I also created reusable food cards so items can be added to the cart directly from restaurant menus and recommendation sections.
+
+
+
+
+
+
