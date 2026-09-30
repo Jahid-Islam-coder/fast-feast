@@ -477,6 +477,68 @@ Orders & Tracking
 
 
 
+Testing
+
+
+## 🚀 Getting Started
+
+Follow these steps to run FastFeast locally.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Flutter SDK
+- Android Studio
+- A Firebase project
+- An Android emulator or physical device
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Jahid-Islam-coder/fast-feast.git
+```
+
+2. Open the project
+
+```bash
+cd fast-feast
+```
+
+3. Install dependencies
+
+```bash
+flutter pub get
+```
+
+4. Configure Firebase
+This project requires Firebase to be configured for your own Firebase project.
+
+Set up Firebase for your Flutter application and enable:
+
+* Email/Password Authentication
+* Google Authentication
+* Setup Realtime DataBase
+
+Make sure the Firebase configuration files for your platform are added.
+
+
+5. Configure Stripe
+
+Note: Stripe payment functionality requires your own Stripe configuration. Do not commit Stripe secret keys or other private credentials to the repository.
+
+
+5. Run the application:
+```bash
+flutter run
+```
+
+
+
+
+
 🔒 Security
 
 The repository is public, so sensitive credentials and private configuration values are not included.
