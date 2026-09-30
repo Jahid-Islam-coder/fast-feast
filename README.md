@@ -1,16 +1,17 @@
-🍔 FastFeast — Food Delivery App
+## 🍔 FastFeast — Food Delivery App
 
 FastFeast is a food delivery app built with Flutter. Users can find nearby restaurants, browse their menus, search for food, add items to a cart, place orders, and track their order status.
 
 I built this project to get practical experience with Flutter and Firebase while working on a larger application with features such as location-based restaurant discovery, payment processing, cart management, and real-time order updates.
 
-Note: FastFeast is a portfolio project built for learning and demonstrating my Flutter development skills.  
+Note: FastFeast is a portfolio project built for learning and demonstrating my Flutter development skills.
+
+---
 
 
 
 
-
-📱 Project Overview
+## 📱 Project Overview
 
 The main idea of FastFeast is to provide a complete food ordering experience, starting from user authentication and location selection and ending with checkout, payment, and order tracking.
 
@@ -36,13 +37,13 @@ Place Order
 Real-Time Order Tracking
 ```
 
+---
 
 
 
+## ✨ Features
 
-✨ Features
-
-🔐 Authentication & Profile
+## 🔐 Authentication & Profile
 
 FastFeast uses Firebase Authentication for user accounts.
 
@@ -56,21 +57,23 @@ FastFeast uses Firebase Authentication for user accounts.
 * Order history
 * Saved delivery addresses
 
-The app uses an AuthWrapper to check the user's authentication state and decide which part of the application should be displayed.  
+The app uses an AuthWrapper to check the user's authentication state and decide which part of the application should be displayed.
+
+---
 
 
 
 
-
-📍 Location & Delivery Address
+## 📍 Location & Delivery Address
 
 Restaurant discovery is based on the user's location.
 
 Users can:
 
+* Grant location permission 
 * Get their current location using GPS
-* Select a custom delivery address
-* Location search and address selection
+* Select a custom delivery address from Google map
+* Add manual delivery address
 * Manage their delivery address
 * Find restaurants within a specific radius
 
@@ -87,13 +90,27 @@ Geofire Radius Query
      ↓
 Nearby Restaurants
 ```
-This allows the restaurant list to change based on the user's selected location.  
+This allows the restaurant list to change based on the user's selected location.
+
+---
 
 
 
 
 
-🏪 Restaurant Discovery
+## 🏪 Restaurant Discovery and Location Data
+
+FastFeast uses location-based restaurant discovery with Geofire.
+
+For the demo, the Firebase real-time database contains sample restaurants in a few predefined locations. This allows users to see nearby restaurants when running the application within those areas.
+
+### Sample Restaurant Locations
+
+Sample restaurant data is available around:
+
+- 📍 Location
+- 📍 Location 
+- 📍 Location 
 
 Users can browse restaurants based on their location and food categories.
 
@@ -117,13 +134,14 @@ The restaurant listing includes information such as:
 * Ratings
 * Complete restaurant menu
 
-Each restaurant also has its own detail page where users can view the available food items.  
+Each restaurant also has its own detail page where users can view the available food items.
+
+---
 
 
 
 
-
-🍔 Food & Recommendations
+## 🍔 Food & Recommendations
 
 Users can browse food from every restaurants also recommended items from different restaurants.
 
@@ -139,13 +157,15 @@ The food details page includes:
 * Add to Cart
 * Buy Now
 
-I also created reusable food cards so items can be added to the cart directly from restaurant menus and recommendation sections.  
+I also created reusable food cards so items can be added to the cart directly from restaurant menus and recommendation sections.
+
+---
 
 
 
 
 
-🔍 Search
+## 🔍 Search
 
 FastFeast has a search page for finding restaurants and food items.
 
@@ -156,11 +176,11 @@ FastFeast has a search page for finding restaurants and food items.
 
 Search-related state and logic are handled through SearchProvider.
 
+---
 
 
 
-
-🛒 Cart & Checkout
+## 🛒 Cart & Checkout
 
 The cart allows users to review and modify their order before checkout.
 
@@ -180,8 +200,476 @@ The checkout page has:
 * Delivery fee
 * Total amount
 * Payment option
+* Restaurant rating option
+
+---
 
 
 
 
 
+## 💳 Stripe Payment
+
+FastFeast uses Stripe for card payments.
+
+The basic flow is:
+
+```text
+Cart
+ ↓
+Checkout
+ ↓
+Payment
+ ↓
+Stripe
+ ↓
+Payment Result
+ ↓
+Order
+```
+Sensitive payment credentials and configuration values are not included in the public repository.
+
+---
+
+
+
+
+
+## 📦 Order Management
+
+After completing checkout, FastFeast stores the order information in Firebase.
+
+Order records contain information like:
+
+* Ordered items
+* Quantities
+* Prices
+* Order timestamp
+* Delivery address
+* Order status
+
+Users can view their old purchases through the view order section in profile page.
+
+View Order
+
+The order history screen provides:
+
+* Old orders
+* Order details
+* Ordered food items
+* Pricing information
+* Delivery information
+* Current/old order status
+
+---
+
+
+
+
+
+## 🚚 Real-Time Order Tracking On Google Map
+
+FastFeast has a visual order tracking experience that shows the different stages of a delivery.
+
+```text
+🟢 Placed
+   ↓
+🟢 In Progress
+   ↓
+🟢 Completed
+```
+
+If an order is canceled, its status changes to:
+
+```text
+🔴 Canceled
+```
+
+The tracking screen listens to real-time order and location updates from Firebase real-time database, allowing the user to see the current delivery status and location on Google Maps.
+
+Google Maps is used to display the delivery location and provide a visual map-based tracking experience.
+
+---
+
+
+
+
+
+## 🎨 UI / UX
+
+I spent some time on the loading and overall browsing experience instead of showing empty screens while data is loading.
+
+Shimmer Loading
+
+Shimmer placeholders are used in different parts of the app, including:
+
+* Food lists
+* Food grids
+* Nearby restaurants
+* Categories
+* Food details
+* Network images
+* View Oder Page shimmer
+
+These loading states provide users with immediate visual feedback while asynchronous data is being fetched.
+
+---
+
+
+
+
+
+## 📱 Responsive Layout
+
+FastFeast uses flutter_screenutil to adapt layouts across different screen sizes, including phones and tablets to avoid screen overflow errors.
+
+---
+
+
+
+
+
+## 👋 Onboarding
+
+FastFeast includes a multi-page onboarding experience for first-time users.
+
+The onboarding experience introduces the main concept of the application before users enter the main app.
+
+---
+
+
+
+
+
+
+## 🏗️ Application Structure
+
+I organized the project into separate folders for views, providers/controllers, services, models, and reusable UI components.
+
+The current structure looks like this:
+
+```text
+lib/
+├── common/
+│   └── shimmers/
+├── constants/
+├── controllers/
+│   ├── provider/
+│   └── services/
+├── models/
+├── views/
+│   ├── address/
+│   ├── auth/
+│   ├── bottom_navigation_bar/
+│   ├── cart/
+│   ├── food/
+│   ├── home/
+│   │   └── widgets/
+│   ├── onboarding/
+│   ├── profile/
+│   └── search/
+├── firebase_options.dart
+└── main.dart
+```
+
+This keeps business logic out of individual UI widgets and makes the application easier to maintain.
+
+---
+
+
+
+
+
+## 🗄️ Backend & Data
+
+FastFeast uses Firebase services for backend functionality.
+
+Firebase Authentication
+
+Used for:
+
+User registration
+Login
+Google authentication
+Forgot password
+Authentication state
+
+Firebase Realtime Database
+
+Used for real-time location-based restaurant discovery, as well as application data such as restaurant, food, user, and order details.
+
+Geofire
+
+Used for geographic queries to discover restaurants within a specified radius.
+
+---
+
+
+
+
+
+## 🛠️ Tech Stack
+
+Frontend
+
+* Flutter
+* Dart
+* Material UI
+* flutter_screenutil
+
+
+State Management
+
+* Provider
+
+Backend
+
+* Firebase Authentication
+* Firebase Realtime Database
+
+Location
+
+* Device GPS
+* Geolocation
+* Geofire
+
+Payment
+
+* Stripe
+
+UI / UX
+
+* Shimmer loading
+* Responsive layouts
+* Network image loading
+* Onboarding carousel
+
+---
+
+
+
+
+
+## 🔑 Things I Practiced in This Project
+
+While building FastFeast, I worked with:
+
+* Firebase Authentication
+* Google Sign-In
+* Provider state management
+* Firebase Realtime Database
+* Location services
+* Geofire radius queries
+* Delivery address management
+* Cart state management
+* Stripe payments
+* Order management
+* Real-time order tracking and status
+* Reusable Flutter widgets
+* Responsive layouts
+* Loading and error states
+* Shimmer effects
+
+---
+
+
+
+
+
+## 📸 Screenshots
+
+Authentication
+
+*
+
+Home & Restaurant Discovery
+
+*
+
+Restaurant & Food Details
+
+*
+
+Cart & Checkout
+
+*
+
+Orders & Tracking
+
+*
+
+---
+
+
+
+
+
+## Testing
+
+FastFeast includes unit and widget tests covering key parts of the application.
+
+### Test Coverage
+
+- **Controllers & Providers**
+  * Cart Provider
+  * Category Controller
+  * Restaurant Menu Provider
+  * Search Provider
+  * Tab Index Controller
+
+- **Models**
+  * Category
+  * Delivery Address
+  * Food
+  * Order
+  * Restaurant
+  * Restaurant ID & Location
+  * Review
+  * User
+
+- **Widgets**
+  * Category Widget
+  * Custom Container
+  * Heading
+  * Reusable Text
+  * Widget
+
+The current test suite contains 42 passing tests.
+
+Run all tests with:
+
+```bash
+flutter test
+```
+
+
+
+
+
+## 🚀 Getting Started
+
+Follow these steps to run FastFeast locally.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Flutter SDK
+- Android Studio
+- A Firebase project
+- An Android emulator or physical device
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Jahid-Islam-coder/fast-feast.git
+```
+
+2. Open the project
+
+```bash
+cd fast-feast
+```
+
+3. Install dependencies
+
+```bash
+flutter pub get
+```
+
+
+4. Configure Firebase
+This project requires Firebase to be configured for your own Firebase project.
+
+Set up Firebase for your Flutter application and enable:
+
+* Email/Password Authentication
+* Google Authentication
+* Setup Realtime DataBase
+
+Make sure the Firebase configuration files for your platform are added.
+
+
+5. Configure Stripe
+
+Note: Stripe payment functionality requires your own Stripe configuration. Do not commit Stripe secret keys or other private credentials to the repository.
+
+
+5. Run the application:
+```bash
+flutter run
+```
+
+---
+
+
+
+
+
+## 🚀 What I Learned
+
+One of the biggest things I learned from this project was how different parts of a Flutter application start interacting as the project becomes bigger.
+
+Some of the key areas explored during development were:
+
+Location-Based Data
+
+Working with latitude/longitude data and radius-based restaurant queries Showed me a different type of data retrieval compared with document-based queries.
+
+State Management
+
+The application contains many independent pieces of state, including authentication, location, search, cart, payment, and order information. Managing these through dedicated providers helped keep the UI and application logic separated.
+
+Payment Integration
+
+Integrating Stripe provided me a practical experience with external payment services and the additional security considerations needed when handling payments and transactions.
+
+Overall, FastFeast helped me understand how to build structure and connect multiple features into one complete application.
+
+---
+
+
+
+
+
+## 📌 Project Status
+
+As of now FastFeast is a portfolio project with the main customer-side food ordering flow implemented.
+
+There are still many areas that could be extended in the future, like:
+
+* Ai based food recommendation
+* Restaurant-side management
+* Delivery driver functionality
+* Push notifications
+* Reviews
+* Favorites/wishlist
+* More advanced restaurant filtering
+
+---
+
+
+
+
+
+👨‍💻 Author
+
+Jahid Islam
+
+Flutter Developer interested in building practical mobile applications with Flutter, Dart, Firebase, and modern application development technologies.
+
+---
+
+
+
+
+
+⭐ About This Project
+
+FastFeast is one of my practical Flutter portfolio projects and I built it to practice working with a bigger application containing multiple features together.
+
+It combines authentication, location services, restaurant discovery, food ordering, payments, and order tracking into one application.
+
+If you found the project interesting, feel free to ⭐ the repository.
