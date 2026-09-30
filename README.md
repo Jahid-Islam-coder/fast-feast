@@ -70,6 +70,7 @@ Restaurant discovery is based on the user's location.
 
 Users can:
 
+* Grant location permission 
 * Get their current location using GPS
 * Select a custom delivery address from Google map
 * Add manual delivery address
@@ -97,7 +98,19 @@ This allows the restaurant list to change based on the user's selected location.
 
 
 
-## 🏪 Restaurant Discovery
+## 🏪 Restaurant Discovery and Location Data
+
+FastFeast uses location-based restaurant discovery with Geofire.
+
+For the demo, the Firebase real-time database contains sample restaurants in a few predefined locations. This allows users to see nearby restaurants when running the application within those areas.
+
+### Sample Restaurant Locations
+
+Sample restaurant data is available around:
+
+- 📍 Location
+- 📍 Location 
+- 📍 Location 
 
 Users can browse restaurants based on their location and food categories.
 
