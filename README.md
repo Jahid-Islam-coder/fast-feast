@@ -267,7 +267,19 @@ FastFeast has a visual order tracking experience that shows the different stages
    ↓
 🟢 Canceled
 ```
-The tracking screen updates according to the current order status stored in Firebase.
+
+If an order is canceled, its status changes to:
+
+```text
+🔴 Canceled
+```
+
+The tracking screen listens to the current order status stored in Firebase and updates the UI accordingly.  
+
+
+The tracking screen listens to real-time order and location updates from Firebase real-time database, allowing the user to see the current delivery status and location on Google Maps.
+
+Google Maps is used to display the delivery location and provide a visual map-based tracking experience.
 
 ---
 
