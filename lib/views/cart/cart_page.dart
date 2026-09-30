@@ -82,7 +82,7 @@ class _CartPageState extends State<CartPage> {
                                   SizedBox(height: 5.h),
                                   ReusableText(
                                     text: "\$${item.cartPrice}",
-                                    style: appStyle(26.sp, Colors.amber[700]!, FontWeight.bold),
+                                    style: appStyle(26.sp, Color(0xffD97706), FontWeight.bold),
                                   ),
                                   SizedBox(height: 10.h),
                                   Row(
@@ -149,11 +149,11 @@ class _CartPageState extends State<CartPage> {
                     children: [
                       ReusableText(
                         text: "Subtotal :",
-                        style: appStyle(20, Colors.black, FontWeight.bold),
+                        style: appStyle(30.sp, Colors.black, FontWeight.bold),
                       ),
                       ReusableText(
                         text: "\$${cartProvider.getTotalPrice().toStringAsFixed(2)}",
-                        style: appStyle(20, Colors.amber[700]!, FontWeight.bold),
+                        style: appStyle(30.sp, Color(0xffD97706), FontWeight.bold),
                       ),
                     ],
                   ),
@@ -185,20 +185,11 @@ class _CartPageState extends State<CartPage> {
                       ),
                       child: ReusableText(
                         text: "Checkout",
-                        style: appStyle(18, Colors.white, FontWeight.bold),
+                        style: appStyle(30.sp, Colors.white, FontWeight.bold),
                       ),
                     ),
                   ),
                   SizedBox(height: 10.h),
-                  Center(
-                    child: TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: ReusableText(
-                        text: "Back to Menu",
-                        style: appStyle(14.sp, Colors.grey.shade600, FontWeight.normal),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             );

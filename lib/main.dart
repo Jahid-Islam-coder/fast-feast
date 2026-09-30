@@ -8,6 +8,7 @@ import 'constants/stripe_constants.dart';
 import 'controllers/provider/auth_provider.dart';
 import 'controllers/provider/bottom_navigation_bar_provider.dart';
 import 'controllers/provider/category_provider.dart';
+import 'controllers/provider/payment_provider.dart';
 import 'controllers/provider/restaurant_menu_provider.dart';
 import 'controllers/provider/restaurant_provider.dart';
 import 'controllers/provider/review_cart_provider.dart';
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider<OrderTrackingProvider>(create: (_) => OrderTrackingProvider()),
             ChangeNotifierProvider<OrderProvider>(create: (_) => OrderProvider()),
             ChangeNotifierProvider<LocationProvider>(create: (_) => LocationProvider()),
-            // ChangeNotifierProvider<PaymentProvider>(create: (_) => PaymentProvider()),
+            ChangeNotifierProvider<PaymentProvider>(create: (_) => PaymentProvider()),
           ],
           child: MaterialApp(
               theme: ThemeData(
