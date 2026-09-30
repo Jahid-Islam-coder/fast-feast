@@ -71,8 +71,8 @@ Restaurant discovery is based on the user's location.
 Users can:
 
 * Get their current location using GPS
-* Select a custom delivery address
-* Location search and address selection
+* Select a custom delivery address from Google map
+* Add manual delivery address
 * Manage their delivery address
 * Find restaurants within a specific radius
 
@@ -264,8 +264,6 @@ FastFeast has a visual order tracking experience that shows the different stages
 🟢 In Progress
    ↓
 🟢 Completed
-   ↓
-🟢 Canceled
 ```
 
 If an order is canceled, its status changes to:
