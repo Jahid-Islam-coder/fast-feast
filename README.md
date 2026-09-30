@@ -407,35 +407,37 @@ Used for geographic queries to discover restaurants within a specified radius.
 
 
 
-
 ## 🛠️ Tech Stack
 
-Frontend
+### Frontend
 
-* Flutter
-* Dart
-* Material UI
-* flutter_screenutil
+- **Flutter & Dart** — Cross-platform app development
+- **Material UI** — UI components and design
+- **flutter_screenutil** — Responsive UI scaling
+
+### State Management
+
+- **Provider** — Application state management
+
+### Backend
+
+- **Firebase Authentication** — User authentication
+- **Firebase Realtime Database** — User, restaurant, application data, Real-time order and location updates
+
+### Maps & Location
+
+- **Google Maps** — Address selection and order tracking
+- **Device GPS** — Fetching the user's current location
+- **Geolocator** — Location and GPS services
+- **Geofire** — Location-based restaurant discovery
+
+### Payment
+
+- **Stripe** — Payment processing
+
+---
 
 
-State Management
-
-* Provider
-
-Backend
-
-* Firebase Authentication
-* Firebase Realtime Database
-
-Location
-
-* Device GPS
-* Geolocation
-* Geofire
-
-Payment
-
-* Stripe
 
 UI / UX
 
