@@ -559,6 +559,7 @@ cd fast-feast
 flutter pub get
 ```
 
+
 4. Configure Firebase
 This project requires Firebase to be configured for your own Firebase project.
 
@@ -570,7 +571,6 @@ Set up Firebase for your Flutter application and enable:
 
 Make sure the Firebase configuration files for your platform are added.
 
----
 
 5. Configure Stripe
 
