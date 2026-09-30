@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'constants/stripe_constants.dart';
 import 'controllers/provider/auth_provider.dart';

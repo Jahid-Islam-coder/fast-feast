@@ -12,7 +12,7 @@ class CategoryList extends StatelessWidget {
       {'_id': '2', 'title': 'Pizza', 'value': 'pizza', 'icon': 'assets/images/pizza.png', 'image': 'assets/images/pizza.png'},
       {'_id': '3', 'title': 'Pasta', 'value': 'pasta', 'icon': 'assets/images/pasta.png', 'image': 'assets/images/pasta.png'},
       {'_id': '4', 'title': 'Cake', 'value': 'cake', 'icon': 'assets/images/cake.png', 'image': 'assets/images/cake.png'},
-
+      {'_id': '5', 'title': 'Biryani', 'value': 'biryani', 'icon': 'assets/images/biryani.png', 'image': 'assets/images/biryani.png'},
     ];
 
     return Container(

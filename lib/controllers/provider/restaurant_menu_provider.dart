@@ -17,6 +17,19 @@ class RestaurantMenuProvider extends ChangeNotifier {
     return _menuCache.containsKey(restaurantId);
   }
 
+  // seed restaurant menu (useful for testing and offline seeding)
+  void setRestaurantMenu(String restaurantId, List<FoodModel> foodData) {
+    _menuCache[restaurantId] = foodData;
+    _restaurantFoods = foodData;
+    for (var item in foodData) {
+      if (!_foods.any((f) => f.id == item.id)) {
+        _foods.add(item);
+      }
+    }
+    _isLoading = false;
+    notifyListeners();
+  }
+
   // fetch restaurant menu (uses cache if available)
   Future<List<FoodModel>> fetchRestaurantMenu(String restaurantId, {bool forceRefresh = false}) async {
     // return cached list if we already have it
