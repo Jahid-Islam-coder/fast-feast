@@ -1,4 +1,4 @@
-🍔 FastFeast — Food Delivery App
+## 🍔 FastFeast — Food Delivery App
 
 FastFeast is a food delivery app built with Flutter. Users can find nearby restaurants, browse their menus, search for food, add items to a cart, place orders, and track their order status.
 
@@ -11,7 +11,7 @@ Note: FastFeast is a portfolio project built for learning and demonstrating my F
 
 
 
-📱 Project Overview
+## 📱 Project Overview
 
 The main idea of FastFeast is to provide a complete food ordering experience, starting from user authentication and location selection and ending with checkout, payment, and order tracking.
 
@@ -41,9 +41,9 @@ Real-Time Order Tracking
 
 
 
-✨ Features
+## ✨ Features
 
-🔐 Authentication & Profile
+## 🔐 Authentication & Profile
 
 FastFeast uses Firebase Authentication for user accounts.
 
@@ -64,7 +64,7 @@ The app uses an AuthWrapper to check the user's authentication state and decide 
 
 
 
-📍 Location & Delivery Address
+## 📍 Location & Delivery Address
 
 Restaurant discovery is based on the user's location.
 
@@ -97,7 +97,7 @@ This allows the restaurant list to change based on the user's selected location.
 
 
 
-🏪 Restaurant Discovery
+## 🏪 Restaurant Discovery
 
 Users can browse restaurants based on their location and food categories.
 
@@ -128,7 +128,7 @@ Each restaurant also has its own detail page where users can view the available 
 
 
 
-🍔 Food & Recommendations
+## 🍔 Food & Recommendations
 
 Users can browse food from every restaurants also recommended items from different restaurants.
 
@@ -152,7 +152,7 @@ I also created reusable food cards so items can be added to the cart directly fr
 
 
 
-🔍 Search
+## 🔍 Search
 
 FastFeast has a search page for finding restaurants and food items.
 
@@ -167,7 +167,7 @@ Search-related state and logic are handled through SearchProvider.
 
 
 
-🛒 Cart & Checkout
+## 🛒 Cart & Checkout
 
 The cart allows users to review and modify their order before checkout.
 
@@ -195,7 +195,7 @@ The checkout page has:
 
 
 
-💳 Stripe Payment
+## 💳 Stripe Payment
 
 FastFeast uses Stripe for card payments.
 
@@ -222,7 +222,7 @@ Sensitive payment credentials and configuration values are not included in the p
 
 
 
-📦 Order Management
+## 📦 Order Management
 
 After completing checkout, FastFeast stores the order information in Firebase.
 
@@ -254,7 +254,7 @@ The order history screen provides:
 
 
 
-🚚 Real-Time Order Tracking On Google Map
+## 🚚 Real-Time Order Tracking On Google Map
 
 FastFeast has a visual order tracking experience that shows the different stages of a delivery.
 
@@ -275,7 +275,7 @@ The tracking screen updates according to the current order status stored in Fire
 
 
 
-🎨 UI / UX
+## 🎨 UI / UX
 
 I spent some time on the loading and overall browsing experience instead of showing empty screens while data is loading.
 
@@ -299,7 +299,7 @@ These loading states provide users with immediate visual feedback while asynchro
 
 
 
-📱 Responsive Layout
+## 📱 Responsive Layout
 
 FastFeast uses flutter_screenutil to adapt layouts across different screen sizes, including phones and tablets to avoid screen overflow errors.
 
@@ -309,7 +309,7 @@ FastFeast uses flutter_screenutil to adapt layouts across different screen sizes
 
 
 
-👋 Onboarding
+## 👋 Onboarding
 
 FastFeast includes a multi-page onboarding experience for first-time users.
 
@@ -322,7 +322,7 @@ The onboarding experience introduces the main concept of the application before 
 
 
 
-🏗️ Application Structure
+## 🏗️ Application Structure
 
 I organized the project into separate folders for views, providers/controllers, services, models, and reusable UI components.
 
@@ -360,7 +360,7 @@ This keeps business logic out of individual UI widgets and makes the application
 
 
 
-🗄️ Backend & Data
+## 🗄️ Backend & Data
 
 FastFeast uses Firebase services for backend functionality.
 
@@ -388,7 +388,7 @@ Used for geographic queries to discover restaurants within a specified radius.
 
 
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 Frontend
 
@@ -430,7 +430,7 @@ UI / UX
 
 
 
-🔑 Things I Practiced in This Project
+## 🔑 Things I Practiced in This Project
 
 While building FastFeast, I worked with:
 
@@ -456,7 +456,7 @@ While building FastFeast, I worked with:
 
 
 
-📸 Screenshots
+## 📸 Screenshots
 
 Authentication
 
@@ -588,7 +588,7 @@ flutter run
 
 
 
-🚀 What I Learned
+## 🚀 What I Learned
 
 One of the biggest things I learned from this project was how different parts of a Flutter application start interacting as the project becomes bigger.
 
@@ -614,20 +614,7 @@ Overall, FastFeast helped me understand how to build structure and connect multi
 
 
 
-
-🔒 Security
-
-The repository is public, so sensitive credentials and private configuration values are not included.
-
-This public repository is intended to Show the application's architecture, implementation approach, and Flutter development practices without exposing private credentials or secrets.
-
----
-
-
-
-
-
-📌 Project Status
+## 📌 Project Status
 
 As of now FastFeast is a portfolio project with the main customer-side food ordering flow implemented.
 
