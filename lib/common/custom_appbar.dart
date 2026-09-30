@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import '../controllers/provider/bottom_navigation_bar_provider.dart';
 import '../controllers/provider/user_provider.dart';
 import '../views/address/set_address_page.dart';
 import 'app_style.dart';
 import 'reusable_text.dart';
+import 'responsive_avatar.dart';
 
 // main appbar for home screen
 class CustomAppbar extends StatelessWidget {
@@ -66,10 +68,12 @@ class CustomAppbar extends StatelessWidget {
               ],
             ),
             // profile icon on right
-            CircleAvatar(
-              radius: 22.r,
-              backgroundColor: Colors.white,
-              child: Icon(Icons.person, color: const Color(0xFF8a2ae4), size: 44.sp),
+            ResponsiveAvatar(
+              size: 45.r,
+              onTap: () {
+                final tabController = Provider.of<TabIndexController>(context, listen: false);
+                tabController.tabIndex = 3;
+              },
             ),
           ],
         ),

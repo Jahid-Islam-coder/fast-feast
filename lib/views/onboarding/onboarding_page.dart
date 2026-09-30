@@ -27,6 +27,7 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFECE3F7),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
@@ -46,17 +47,17 @@ class OnboardingPage extends StatelessWidget {
             ),
             const Spacer(),
             ReusableText(
-              text: "Enjoy",
+              text: "Good Food",
               style: TextStyle(
-                fontSize: 34.sp,
+                fontSize: 30.sp,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             ReusableText(
-              text: "Your Food",
+              text: "Just a Tap Away",
               style: TextStyle(
-                fontSize: 34.sp,
+                fontSize: 30.sp,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
@@ -78,7 +79,7 @@ class OnboardingPage extends StatelessWidget {
                   child: Text(
                     "Get Started",
                     style: TextStyle(
-                      fontSize: 36.sp,
+                      fontSize: 32.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -437,7 +438,6 @@ class _AuthBottomSheetContentState extends State<AuthBottomSheetContent> {
                               ),
                             ),
                             style: OutlinedButton.styleFrom(
-                              backgroundColor: const Color(0xFFECE3F7),
                               minimumSize: Size(double.infinity, 50.h),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.r),

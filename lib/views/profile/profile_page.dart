@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_database/firebase_database.dart';
 import '../../common/app_style.dart';
+import '../../common/responsive_avatar.dart';
 import '../../common/reusable_text.dart';
 import '../../controllers/provider/user_provider.dart';
 import '../../controllers/provider/auth_provider.dart';
 import '../../controllers/provider/order_provider.dart';
 import '../auth/auth_wrapper.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 // user profile page
 class ProfilePage extends StatefulWidget {
@@ -48,59 +48,6 @@ class _DailyMembersProfileState extends State<ProfilePage> {
             ),
           ),
         ],
-      );
-    }
-
-    Widget buildResponsiveAvatar(BuildContext context) {
-      final screenSize = MediaQuery.of(context).size;
-
-      // responsiveness calculation for avatar size
-      const double referenceWidth = 400.0;
-      final double scaleFactor = screenSize.width / referenceWidth;
-
-      final double responsiveTop = 105.0 * scaleFactor;
-      final double responsiveLeft = 155.0 * scaleFactor;
-      final double responsiveSize = (90.0 * scaleFactor).clamp(60.0, 120.0);
-
-      return Padding(
-        padding: EdgeInsets.only(top: responsiveTop, left: responsiveLeft),
-        child: SizedBox(
-          width: responsiveSize,
-          height: responsiveSize,
-          child: ClipOval(
-            child: userProvider.currentUserData?.userImage.isNotEmpty == true
-                ? CachedNetworkImage(
-                    imageUrl: userProvider.currentUserData!.userImage,
-                    fit: BoxFit.cover,
-                    width: responsiveSize,
-                    height: responsiveSize,
-                    placeholder: (context, url) => const Center(
-                      child: SizedBox(
-                        width: 24,
-                        height: 24,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    errorWidget: (context, url, error) => Container(
-                      color: Colors.grey[800],
-                      child: const Icon(
-                        Icons.person,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                  )
-                : Image.asset(
-                    'assets/images/men.png',
-                    fit: BoxFit.cover,
-                    width: responsiveSize,
-                    height: responsiveSize,
-                  ),
-          ),
-        ),
       );
     }
 
@@ -254,7 +201,7 @@ class _DailyMembersProfileState extends State<ProfilePage> {
                 ],
               ),
 
-              buildResponsiveAvatar(context),
+              const ResponsiveAvatar(isProfilePage: true),
             ],
           );
         },
