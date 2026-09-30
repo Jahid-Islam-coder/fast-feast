@@ -456,32 +456,6 @@ While building FastFeast, I worked with:
 
 
 
-🚀 What I Learned
-
-One of the biggest things I learned from this project was how different parts of a Flutter application start interacting as the project becomes bigger.
-
-Some of the key areas explored during development were:
-
-Location-Based Data
-
-Working with latitude/longitude data and radius-based restaurant queries Showed me a different type of data retrieval compared with document-based queries.
-
-State Management
-
-The application contains many independent pieces of state, including authentication, location, search, cart, payment, and order information. Managing these through dedicated providers helped keep the UI and application logic separated.
-
-Payment Integration
-
-Integrating Stripe provided me a practical experience with external payment services and the additional security considerations needed when handling payments and transactions.
-
-Overall, FastFeast helped me understand how to build structure and connect multiple features into one complete application.
-
----
-
-
-
-
-
 📸 Screenshots
 
 Authentication
@@ -510,7 +484,46 @@ Orders & Tracking
 
 
 
-Testing
+## Testing
+
+FastFeast includes unit and widget tests covering key parts of the application.
+
+### Test Coverage
+
+- **Controllers & Providers**
+  * Cart Provider
+  * Category Controller
+  * Restaurant Menu Provider
+  * Search Provider
+  * Tab Index Controller
+
+- **Models**
+  * Category
+  * Delivery Address
+  * Food
+  * Order
+  * Restaurant
+  * Restaurant ID & Location
+  * Review
+  * User
+
+- **Widgets**
+  * Category Widget
+  * Custom Container
+  * Heading
+  * Reusable Text
+  * Widget
+
+The current test suite contains 42 passing tests.
+
+Run all tests with:
+
+```bash
+flutter test
+```
+
+
+
 
 
 ## 🚀 Getting Started
@@ -570,6 +583,34 @@ flutter run
 ```
 
 ---
+
+
+
+
+
+🚀 What I Learned
+
+One of the biggest things I learned from this project was how different parts of a Flutter application start interacting as the project becomes bigger.
+
+Some of the key areas explored during development were:
+
+Location-Based Data
+
+Working with latitude/longitude data and radius-based restaurant queries Showed me a different type of data retrieval compared with document-based queries.
+
+State Management
+
+The application contains many independent pieces of state, including authentication, location, search, cart, payment, and order information. Managing these through dedicated providers helped keep the UI and application logic separated.
+
+Payment Integration
+
+Integrating Stripe provided me a practical experience with external payment services and the additional security considerations needed when handling payments and transactions.
+
+Overall, FastFeast helped me understand how to build structure and connect multiple features into one complete application.
+
+---
+
+
 
 
 
