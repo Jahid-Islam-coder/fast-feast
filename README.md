@@ -482,27 +482,42 @@ While building FastFeast, I worked with:
 
 Authentication
 
-### Signup Login
+### Onboarding Screen 
+
+![Onboarding](screenshots/onboarding.png)
+
+### Signup Login Screen
 
 ![Signup Login](screenshots/signup-login.png)
 
+
 Home & Restaurant Discovery
 
-### Home
+### Home Screen
 
 ![Home](screenshots/home.png)
 
-### Restaurant
-
-![Restaurant](screenshots/restaurant.png)
 
 Restaurant & Food Details
 
-*
+### Restaurant Screen
+
+![Restaurant](screenshots/restaurant.png)
+
+### Food Screen
+
+![Food](screenshots/food.png)
+
 
 Cart & Checkout
 
-*
+### Cart Screen
+
+![Cart](screenshots/cart.png)
+
+### Checkout Screen
+
+![Checkout](screenshots/checkout.png)
 
 Orders & Tracking
 
