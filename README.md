@@ -482,11 +482,19 @@ While building FastFeast, I worked with:
 
 Authentication
 
-*
+### Signup Login
+
+![Signup Login](screenshots/signup-login.png)
 
 Home & Restaurant Discovery
 
-*
+### Home
+
+![Home](screenshots/home.png)
+
+### Restaurant
+
+![Restaurant](screenshots/restaurant.png)
 
 Restaurant & Food Details
 
