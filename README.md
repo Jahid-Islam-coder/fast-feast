@@ -341,6 +341,56 @@ The onboarding experience introduces the main concept of the application before 
 
 
 
+## 📸 Screenshots
+
+Authentication
+
+### Onboarding Screen 
+
+![Onboarding](screenshots/onboarding.png)
+
+### Signup Login Screen
+
+![Signup Login](screenshots/signup-login.png)
+
+
+Home & Restaurant Discovery
+
+### Home Screen
+
+![Home](screenshots/home.png)
+
+
+Restaurant & Food Details
+
+### Restaurant Screen
+
+![Restaurant](screenshots/restaurant.png)
+
+### Food Screen
+
+![Food](screenshots/food.png)
+
+
+Cart & Checkout
+
+### Cart Screen
+
+![Cart](screenshots/cart.png)
+
+### Checkout Screen
+
+![Checkout](screenshots/checkout.png)
+
+Orders & Tracking
+
+*
+
+---
+
+
+
+
 
 ## 🏗️ Application Structure
 
@@ -407,6 +457,7 @@ Used for geographic queries to discover restaurants within a specified radius.
 
 
 
+
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -436,6 +487,8 @@ Used for geographic queries to discover restaurants within a specified radius.
 - **Stripe** — Payment processing
 
 ---
+
+
 
 
 
@@ -471,57 +524,6 @@ While building FastFeast, I worked with:
 * Responsive layouts
 * Loading and error states
 * Shimmer effects
-
----
-
-
-
-
-
-## 📸 Screenshots
-
-Authentication
-
-### Onboarding Screen 
-
-![Onboarding](screenshots/onboarding.png)
-
-### Signup Login Screen
-
-![Signup Login](screenshots/signup-login.png)
-
-
-Home & Restaurant Discovery
-
-### Home Screen
-
-![Home](screenshots/home.png)
-
-
-Restaurant & Food Details
-
-### Restaurant Screen
-
-![Restaurant](screenshots/restaurant.png)
-
-### Food Screen
-
-![Food](screenshots/food.png)
-
-
-Cart & Checkout
-
-### Cart Screen
-
-![Cart](screenshots/cart.png)
-
-### Checkout Screen
-
-![Checkout](screenshots/checkout.png)
-
-Orders & Tracking
-
-*
 
 ---
 
