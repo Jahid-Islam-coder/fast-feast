@@ -112,7 +112,7 @@ class _SearchPageState extends State<SearchPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index){
-                        RestaurantDetailModel restaurant = searchProvider.filteredResults[index];
+                        RestaurantDetailModel restaurant = searchProvider.filteredResults[index] as RestaurantDetailModel;
                         return GestureDetector(
                             onTap: (){
                               Navigator.push(context, PageTransition(

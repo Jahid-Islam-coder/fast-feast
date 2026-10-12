@@ -1,24 +1,23 @@
 
 import 'package:flutter/cupertino.dart';
-
-import '../../models/restaurants_model.dart';
+import '../../features/restaurant/domain/entities/restaurant_entity.dart';
 
 class SearchProvider extends ChangeNotifier{
   String _searchQuery = '';
-  List<RestaurantDetailModel> _filteredResults = [];
+  List<RestaurantEntity> _filteredResults = [];
 
-  List<RestaurantDetailModel> get filteredResults => _filteredResults;
-  void updateData(List<RestaurantDetailModel> nearbyRestaurants) {
+  List<RestaurantEntity> get filteredResults => _filteredResults;
+  void updateData(List<RestaurantEntity> nearbyRestaurants) {
     _performSearch(nearbyRestaurants);
   }
 
-  void updateQuery(String query, List<RestaurantDetailModel> nearbyRestaurants) {
+  void updateQuery(String query, List<RestaurantEntity> nearbyRestaurants) {
     _searchQuery = query.toLowerCase().trim();
     _performSearch(nearbyRestaurants);
     notifyListeners();
   }
 
-  void _performSearch(List<RestaurantDetailModel> sourceList) {
+  void _performSearch(List<RestaurantEntity> sourceList) {
     if (_searchQuery.isEmpty) {
       _filteredResults = [];
     } else {
@@ -36,6 +35,4 @@ class SearchProvider extends ChangeNotifier{
       }).toList();
     }
   }
-
-
 }

@@ -47,7 +47,7 @@ class NearbyRestaurantsList extends StatelessWidget {
             physics: physics,
             itemCount: restaurantProvider.restaurants.length,
             itemBuilder: (context, index) {
-              RestaurantDetailModel restaurant = restaurantProvider.restaurants[index];
+              RestaurantDetailModel restaurant = restaurantProvider.restaurants[index] as RestaurantDetailModel;
               return GestureDetector(
                 onTap: () {
                   Navigator.push(

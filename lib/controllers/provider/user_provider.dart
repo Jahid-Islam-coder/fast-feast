@@ -15,7 +15,7 @@ class UserProvider with ChangeNotifier {
 
   // save user info to firebase
   Future<void> addUserData({
-    required User currentUser,
+    User? currentUser,
     required String userName,
     required String userEmail,
     String userImage = "",
@@ -24,11 +24,14 @@ class UserProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      await _db.child("users/${currentUser.uid}/profile").set({
+      final user = currentUser ?? FirebaseAuth.instance.currentUser;
+      if (user == null) return;
+
+      await _db.child("users/${user.uid}/profile").set({
         "userName": userName,
         "userEmail": userEmail,
         "userImage": userImage,
-        "userUid": currentUser.uid,
+        "userUid": user.uid,
         "updatedAt": ServerValue.timestamp,
       });
       

@@ -370,7 +370,6 @@ class _AuthBottomSheetContentState extends State<AuthBottomSheetContent> {
                                           final user = authProvider.user;
                                           if (user != null) {
                                             await userProvider.addUserData(
-                                              currentUser: user,
                                               userName: _signupNameController
                                                   .text
                                                   .trim(),
