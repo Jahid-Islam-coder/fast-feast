@@ -28,6 +28,24 @@ class RestaurantRemoteDataSource {
     return null;
   }
 
+  Future<List<RestaurantDetailModel>> fetchAllRestaurants() async {
+    List<RestaurantDetailModel> restaurants = [];
+    try {
+      DataSnapshot snapshot = await _db.child("RestaurantDetails").get();
+      if (snapshot.exists && snapshot.value is Map) {
+        Map map = snapshot.value as Map;
+        map.forEach((key, value) {
+          if (value is Map) {
+            restaurants.add(RestaurantDetailModel.fromMap(key.toString(), value as Map));
+          }
+        });
+      }
+    } catch (e) {
+      log("Error fetching all restaurants: $e");
+    }
+    return restaurants;
+  }
+
   Future<List<FoodModel>> fetchRestaurantMenu(String restaurantId) async {
     List<FoodModel> menuItems = [];
     try {

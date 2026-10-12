@@ -48,29 +48,12 @@ class _RestaurantDetailScreenState extends State<RestaurantDetailScreen> {
       {'_id': 'all', 'title': 'All', 'value': 'all', 'icon': Icons.restaurant_menu},
       {'_id': '1', 'title': 'Burger', 'value': 'burger', 'image': 'assets/images/burger.png'},
       {'_id': '2', 'title': 'Pizza', 'value': 'pizza', 'image': 'assets/images/pizza.png'},
-      {'_id': '3', 'title': 'Pasta', 'value': 'pasta', 'image': 'assets/images/pasta.png'},
+      {'_id': '3', 'title': 'noodles', 'value': 'noodles', 'image': 'assets/images/pasta.png'},
       {'_id': '4', 'title': 'Cake', 'value': 'cake', 'image': 'assets/images/cake.png'},
       {'_id': '5', 'title': 'Biryani', 'value': 'biryani', 'image': 'assets/images/biryani.png'},
     ];
 
     final existingValues = categoriesList.map((c) => c['value'] as String).toSet();
-    for (var food in foods) {
-      final catName = food.category.trim();
-      if (catName.isNotEmpty && catName != "No Category") {
-        final val = catName.toLowerCase();
-        if (!existingValues.contains(val)) {
-          existingValues.add(val);
-          final formattedTitle = catName[0].toUpperCase() + catName.substring(1);
-          categoriesList.add({
-            '_id': val,
-            'title': formattedTitle,
-            'value': val,
-            'icon': Icons.fastfood,
-          });
-        }
-      }
-    }
-
     return categoriesList;
   }
 
@@ -117,18 +100,21 @@ class _RestaurantDetailScreenState extends State<RestaurantDetailScreen> {
               expandedHeight: 200.h,
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
-                background: CachedNetworkImage(
-                  imageUrl: widget.restaurant.image,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => ShimmerWidget(
-                    shimmerWidth: double.infinity,
-                    shimmerHeight: 200.h,
-                    shimmerRadius: 0,
-                    padding: EdgeInsets.zero,
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    color: Colors.grey[200],
-                    child: const Icon(Icons.error, color: Colors.red),
+                background: Hero(
+                  tag: 'restaurant-image-${widget.restaurant.id}',
+                  child: CachedNetworkImage(
+                    imageUrl: widget.restaurant.image,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => ShimmerWidget(
+                      shimmerWidth: double.infinity,
+                      shimmerHeight: 200.h,
+                      shimmerRadius: 0,
+                      padding: EdgeInsets.zero,
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      color: Colors.grey[200],
+                      child: const Icon(Icons.error, color: Colors.red),
+                    ),
                   ),
                 ),
               ),

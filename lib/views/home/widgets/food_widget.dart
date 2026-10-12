@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fastfeast/common/animated_card.dart';
 import 'package:fastfeast/common/shimmers/shimmer_widget.dart';
 import 'package:fastfeast/models/foods_model.dart';
 import 'package:fastfeast/views/food/food_page.dart';
@@ -16,7 +17,7 @@ class MenuItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return AnimatedPressCard(
       onTap: onTap ?? () {
         Navigator.push(
           context,
@@ -44,19 +45,16 @@ class MenuItemCard extends StatelessWidget {
             Expanded(
               child: ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
-                child: CachedNetworkImage(
-                  imageUrl: item.image,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => ShimmerWidget(
-                    shimmerWidth: double.infinity,
-                    shimmerHeight: double.infinity,
-                    shimmerRadius: 0,
-                    padding: EdgeInsets.zero,
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    color: Colors.grey[200],
-                    child: const Icon(Icons.error, color: Colors.red),
+                child: Hero(
+                  tag: 'food-image-${item.id}',
+                  child: CachedNetworkImage(
+                    imageUrl: item.image,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    errorWidget: (context, url, error) => Container(
+                      color: Colors.grey[200],
+                      child: const Icon(Icons.error, color: Colors.red),
+                    ),
                   ),
                 ),
               ),
@@ -84,7 +82,7 @@ class MenuItemCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      GestureDetector(
+                      AnimatedAddToCartButton(
                         onTap: () async {
                           final cartProvider = Provider.of<CartProvider>(context, listen: false);
                           int currentQty = cartProvider.getQuantity(item.id);

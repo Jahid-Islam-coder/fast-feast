@@ -19,6 +19,11 @@ class RestaurantRepositoryImpl implements RestaurantRepository {
   }
 
   @override
+  Future<List<RestaurantEntity>> getAllRestaurants() async {
+    return await remoteDataSource.fetchAllRestaurants();
+  }
+
+  @override
   Future<List<FoodEntity>> getRestaurantMenu(String restaurantId) async {
     return await remoteDataSource.fetchRestaurantMenu(restaurantId);
   }

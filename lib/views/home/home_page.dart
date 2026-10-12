@@ -6,6 +6,7 @@ import 'package:fastfeast/views/home/widgets/category_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'nearby_restaurants_list.dart';
 
@@ -36,8 +37,9 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const RecommendationsPage(),
+                      PageTransition(
+                        type: PageTransitionType.rightToLeft,
+                        child: const RecommendationsPage(),
                       ),
                     );
                   },

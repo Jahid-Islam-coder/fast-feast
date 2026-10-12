@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '../../common/app_style.dart';
 import '../../common/custom_snackbar.dart';
@@ -23,23 +24,11 @@ class _FoodPageState extends State<FoodPage> {
   int quantity = 1;
   bool _isAddingToCart = false;
   bool _isBuyingNow = false;
-  bool _isLoadingPage = true;
 
   @override
   void initState() {
     super.initState();
     _loadExistingQuantity();
-    _initPageLoading();
-  }
-
-  void _initPageLoading() {
-    Future.delayed(const Duration(milliseconds: 400), () {
-      if (mounted) {
-        setState(() {
-          _isLoadingPage = false;
-        });
-      }
-    });
   }
 
   void _loadExistingQuantity() {
@@ -58,10 +47,6 @@ class _FoodPageState extends State<FoodPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoadingPage) {
-      return const FoodPageShimmer();
-    }
-
     return Scaffold(
       backgroundColor: const Color(0xFF8a2ae4),
       body: Consumer<CartProvider>(
@@ -77,14 +62,17 @@ class _FoodPageState extends State<FoodPage> {
                 child: Center(
                   child: Padding(
                     padding: EdgeInsets.only(top: 40.h),
-                    child: CachedNetworkImage(
-                      imageUrl: widget.food.image,
-                      fit: BoxFit.contain,
-                      width: 0.8.sw,
-                      errorWidget: (context, url, error) => const Icon(
-                        Icons.error_outline,
-                        color: Colors.white,
-                        size: 50,
+                    child: Hero(
+                      tag: 'food-image-${widget.food.id}',
+                      child: CachedNetworkImage(
+                        imageUrl: widget.food.image,
+                        fit: BoxFit.contain,
+                        width: 0.8.sw,
+                        errorWidget: (context, url, error) => const Icon(
+                          Icons.error_outline,
+                          color: Colors.white,
+                          size: 50,
+                        ),
                       ),
                     ),
                   ),
@@ -105,23 +93,36 @@ class _FoodPageState extends State<FoodPage> {
                 ),
               ),
 
-              // details sheet
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 0.6.sh,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFECE3F7),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(100.r),
+              // details sheet with slide & fade entrance animation
+              TweenAnimationBuilder<double>(
+                tween: Tween<double>(begin: 1.0, end: 0.0),
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeOutCubic,
+                builder: (context, value, child) {
+                  return Transform.translate(
+                    offset: Offset(0, value * 150),
+                    child: Opacity(
+                      opacity: (1.0 - value).clamp(0.0, 1.0),
+                      child: child,
                     ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                  );
+                },
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    height: 0.6.sh,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFECE3F7),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(100.r),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                         // price tag
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -260,8 +261,9 @@ class _FoodPageState extends State<FoodPage> {
                                       setState(() => _isBuyingNow = false);
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) => CheckoutPage(
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          child: CheckoutPage(
                                             items: [buyNowItem],
                                             restaurantId: widget.food.restaurantId,
                                           ),
@@ -291,8 +293,9 @@ class _FoodPageState extends State<FoodPage> {
                   ),
                 ),
               ),
-            ],
-          );
+            ),
+          ],
+        );
         },
       ),
     );

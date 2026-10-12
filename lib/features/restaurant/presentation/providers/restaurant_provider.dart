@@ -1,13 +1,17 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_geofire/flutter_geofire.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import '../../domain/entities/restaurant_entity.dart';
 import '../../domain/usecases/get_nearby_restaurants_use_case.dart';
 import '../../domain/usecases/get_restaurant_details_use_case.dart';
+import '../../domain/usecases/get_all_restaurants_use_case.dart';
 
 class RestaurantProvider extends ChangeNotifier {
   final GetNearbyRestaurantsUseCase? getNearbyRestaurantsUseCase;
   final GetRestaurantDetailsUseCase? getRestaurantDetailsUseCase;
+  final GetAllRestaurantsUseCase? getAllRestaurantsUseCase;
 
   final List<RestaurantEntity> _allNearbyRestaurants = [];
   List<RestaurantEntity> _filteredRestaurants = [];
@@ -22,6 +26,7 @@ class RestaurantProvider extends ChangeNotifier {
   RestaurantProvider({
     this.getNearbyRestaurantsUseCase,
     this.getRestaurantDetailsUseCase,
+    this.getAllRestaurantsUseCase,
   });
 
   void setLoading(bool value) {
@@ -78,6 +83,7 @@ class RestaurantProvider extends ChangeNotifier {
     Future.delayed(const Duration(seconds: 10), () {
       if (_isLoading) {
         setLoading(false);
+        _checkFallbackRestaurants(lat, lng, radius);
       }
     });
 
@@ -92,13 +98,73 @@ class RestaurantProvider extends ChangeNotifier {
             break;
           case Geofire.onGeoQueryReady:
             setLoading(false);
+            _checkFallbackRestaurants(lat, lng, radius);
             break;
         }
       }
     }, onError: (error) {
       debugPrint("Geofire error: $error");
       setLoading(false);
+      _checkFallbackRestaurants(lat, lng, radius);
     });
+  }
+
+  Future<void> _checkFallbackRestaurants(double userLat, double userLng, double radiusKm) async {
+    if (getAllRestaurantsUseCase == null) return;
+    try {
+      final allDetails = await getAllRestaurantsUseCase!();
+      for (var restaurant in allDetails) {
+        if (_allNearbyRestaurants.any((res) => res.id == restaurant.id)) {
+          continue;
+        }
+
+        bool isNearby = false;
+        if (restaurant.address.isNotEmpty) {
+          try {
+            List<Location> locations = await locationFromAddress(restaurant.address);
+            if (locations.isEmpty) {
+              String cleaned = restaurant.address
+                  .replaceAll(RegExp(r'#\d+[\w-]*', caseSensitive: false), '')
+                  .replaceAll(RegExp(r'\b(apt|suite|ste|unit|bldg|building|floor|fl)\b\s*\w+', caseSensitive: false), '')
+                  .replaceAll(RegExp(r'\s+'), ' ')
+                  .trim();
+              if (cleaned.isNotEmpty && cleaned != restaurant.address) {
+                locations = await locationFromAddress(cleaned);
+              }
+            }
+
+            if (locations.isNotEmpty) {
+              double distanceMeters = Geolocator.distanceBetween(
+                userLat,
+                userLng,
+                locations.first.latitude,
+                locations.first.longitude,
+              );
+              if (distanceMeters / 1000.0 <= radiusKm) {
+                isNearby = true;
+              }
+            }
+          } catch (_) {
+            // Fallback: If address geocoding fails, match non-empty restaurant addresses
+            isNearby = true;
+          }
+        }
+
+        if (isNearby) {
+          if (!_allNearbyRestaurants.any((res) => res.id == restaurant.id)) {
+            _allNearbyRestaurants.add(restaurant);
+            _filterRestaurants();
+            notifyListeners();
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('Error in fallback restaurant discovery: $e');
+    } finally {
+      if (_isLoading) {
+        setLoading(false);
+      }
+    }
   }
 
   Future<void> addRestaurants(String restaurantId) async {

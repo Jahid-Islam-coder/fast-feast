@@ -1,3 +1,4 @@
+import 'package:fastfeast/common/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -98,7 +99,7 @@ class CategoryWidget extends StatelessWidget {
     final isSelected = controller.categoryValue == categoryId;
     final iconData = category['icon'] ?? category['image'] ?? category['imageUrl'] ?? category['value'] ?? categoryTitle;
 
-    return GestureDetector(
+    return AnimatedPressCard(
       onTap: () {
         if (isSelected) {
           controller.updateCategory = '';

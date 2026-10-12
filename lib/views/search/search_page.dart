@@ -113,18 +113,8 @@ class _SearchPageState extends State<SearchPage> {
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index){
                         RestaurantDetailModel restaurant = searchProvider.filteredResults[index] as RestaurantDetailModel;
-                        return GestureDetector(
-                            onTap: (){
-                              Navigator.push(context, PageTransition(
-                                  type: PageTransitionType.rightToLeft,
-                                  child: RestaurantDetailScreen(
-                                    restaurant: restaurant,
-                                    restaurantId: restaurant.id,
-                                  )));
-                            },
-                            child: RestaurantWidget(
-                              restaurant: restaurant,
-                            ),
+                        return RestaurantWidget(
+                          restaurant: restaurant,
                         );
                       });
                 }

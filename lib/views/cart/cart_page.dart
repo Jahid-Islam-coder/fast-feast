@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '../../common/app_style.dart';
 import '../../common/reusable_text.dart';
@@ -169,8 +170,9 @@ class _CartPageState extends State<CartPage> {
                         }
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => CheckoutPage(
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            child: CheckoutPage(
                               items: cartProvider.cartList,
                               restaurantId: restaurantId,
                             ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../controllers/provider/user_provider.dart';
 
-/// Reusable responsive user avatar widget
+// Reusable responsive user avatar widget
 class ResponsiveAvatar extends StatelessWidget {
   final double? size;
   final double? top;
@@ -36,7 +36,7 @@ class ResponsiveAvatar extends StatelessWidget {
     double? computedLeft = left;
 
     if (isProfilePage && top == null && left == null) {
-      computedTop = 105.0 * scaleFactor;
+      computedTop = 118.0 * scaleFactor;
       computedLeft = 155.0 * scaleFactor;
     }
 

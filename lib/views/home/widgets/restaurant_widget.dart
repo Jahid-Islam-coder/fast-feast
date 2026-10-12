@@ -1,12 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fastfeast/common/animated_card.dart';
 import 'package:fastfeast/common/app_style.dart';
 import 'package:fastfeast/common/reusable_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../../models/restaurants_model.dart';
+import 'restaurants_page.dart';
 
 // restaurant card widget for lists
 class RestaurantWidget extends StatelessWidget {
@@ -17,8 +20,19 @@ class RestaurantWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
+    return AnimatedPressCard(
+      onTap: onTap ?? () {
+        Navigator.push(
+          context,
+          PageTransition(
+            type: PageTransitionType.rightToLeft,
+            child: RestaurantDetailScreen(
+              restaurant: restaurant,
+              restaurantId: restaurant.id,
+            ),
+          ),
+        );
+      },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 8.h),
         child: Container(
@@ -43,20 +57,23 @@ class RestaurantWidget extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.vertical(top: Radius.circular(12.r)),
-                    child: CachedNetworkImage(
-                      imageUrl: restaurant.image,
-                      height: 150.h,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => Container(
-                        height: 160.h,
-                        color: Colors.grey[200],
-                        child: const Center(child: CircularProgressIndicator()),
-                      ),
-                      errorWidget: (context, url, error) => Container(
-                        height: 160.h,
-                        color: Colors.grey[200],
-                        child: const Icon(Icons.error, color: Colors.red),
+                    child: Hero(
+                      tag: 'restaurant-image-${restaurant.id}',
+                      child: CachedNetworkImage(
+                        imageUrl: restaurant.image,
+                        height: 150.h,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => Container(
+                          height: 160.h,
+                          color: Colors.grey[200],
+                          child: const Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (context, url, error) => Container(
+                          height: 160.h,
+                          color: Colors.grey[200],
+                          child: const Icon(Icons.error, color: Colors.red),
+                        ),
                       ),
                     ),
                   ),

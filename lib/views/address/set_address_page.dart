@@ -63,6 +63,24 @@ class _SetAddressPageState extends State<SetAddressPage> {
 
     setState(() => _isSaving = true);
     try {
+      LatLng? resolvedLocation = locationProvider.pickedLocation;
+      if (address.isNotEmpty) {
+        final geocoded = await locationProvider.getCoordinatesFromAddress(address);
+        if (geocoded != null) {
+          resolvedLocation = geocoded;
+        }
+      }
+
+      if (resolvedLocation == null) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Could not determine location for this address. Please pick a location on the map.")),
+          );
+        }
+        setState(() => _isSaving = false);
+        return;
+      }
+
       final user = FirebaseAuth.instance.currentUser;
       if (user != null) {
         await FirebaseDatabase.instance
@@ -70,8 +88,8 @@ class _SetAddressPageState extends State<SetAddressPage> {
             .child("users/${user.uid}/address")
             .set({
           "address": address,
-          "latitude": locationProvider.pickedLocation?.latitude,
-          "longitude": locationProvider.pickedLocation?.longitude,
+          "latitude": resolvedLocation.latitude,
+          "longitude": resolvedLocation.longitude,
           "isAddressSet": true,
         });
 
@@ -284,6 +302,18 @@ class _SetAddressPageState extends State<SetAddressPage> {
                   TextField(
                     controller: _addressController,
                     maxLines: 3,
+                    onSubmitted: (value) async {
+                      if (value.trim().isNotEmpty) {
+                        final loc = await locationProvider.getCoordinatesFromAddress(value.trim());
+                        if (loc != null && _mapController != null) {
+                          _mapController!.animateCamera(
+                            CameraUpdate.newCameraPosition(
+                              CameraPosition(target: loc, zoom: 15),
+                            ),
+                          );
+                        }
+                      }
+                    },
                     decoration: InputDecoration(
                       hintText: "Enter address manually",
                       border: OutlineInputBorder(

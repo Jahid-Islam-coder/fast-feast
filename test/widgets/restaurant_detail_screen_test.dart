@@ -84,7 +84,7 @@ void main() {
       expect(find.text('All'), findsOneWidget);
       expect(find.text('Burger'), findsOneWidget);
       expect(find.text('Pizza'), findsOneWidget);
-      expect(find.text('Pasta', skipOffstage: false), findsOneWidget);
+      expect(find.text('noodles', skipOffstage: false), findsOneWidget);
       expect(find.text('Cake', skipOffstage: false), findsOneWidget);
 
       // Default heading should be "Full Menus"

@@ -21,6 +21,7 @@ import 'features/restaurant/data/datasources/restaurant_remote_data_source.dart'
 import 'features/restaurant/data/repositories/restaurant_repository_impl.dart';
 import 'features/restaurant/domain/usecases/get_nearby_restaurants_use_case.dart';
 import 'features/restaurant/domain/usecases/get_restaurant_details_use_case.dart';
+import 'features/restaurant/domain/usecases/get_all_restaurants_use_case.dart';
 import 'features/restaurant/domain/usecases/get_restaurant_menu_use_case.dart';
 import 'features/restaurant/presentation/providers/restaurant_provider.dart';
 import 'features/restaurant/presentation/providers/restaurant_menu_provider.dart';
@@ -66,6 +67,7 @@ class MyApp extends StatelessWidget {
     final restaurantRepository = RestaurantRepositoryImpl(restaurantRemoteDataSource);
     final getNearbyRestaurantsUseCase = GetNearbyRestaurantsUseCase(restaurantRepository);
     final getRestaurantDetailsUseCase = GetRestaurantDetailsUseCase(restaurantRepository);
+    final getAllRestaurantsUseCase = GetAllRestaurantsUseCase(restaurantRepository);
     final getRestaurantMenuUseCase = GetRestaurantMenuUseCase(restaurantRepository);
 
     return ScreenUtilInit(
@@ -91,6 +93,7 @@ class MyApp extends StatelessWidget {
               create: (_) => RestaurantProvider(
                 getNearbyRestaurantsUseCase: getNearbyRestaurantsUseCase,
                 getRestaurantDetailsUseCase: getRestaurantDetailsUseCase,
+                getAllRestaurantsUseCase: getAllRestaurantsUseCase,
               ),
             ),
             ChangeNotifierProxyProvider<RestaurantProvider, SearchProvider>(

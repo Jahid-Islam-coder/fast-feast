@@ -18,6 +18,69 @@ class LocationProvider with ChangeNotifier {
     await getAddressFromLatLng(location);
   }
 
+  Future<LatLng?> getCoordinatesFromAddress(String addressStr) async {
+    final trimmed = addressStr.trim();
+    if (trimmed.isEmpty) return null;
+
+    // 1. Try geocoding direct address string
+    try {
+      List<Location> locations = await locationFromAddress(trimmed);
+      if (locations.isNotEmpty) {
+        final loc = LatLng(locations.first.latitude, locations.first.longitude);
+        _pickedLocation = loc;
+        _address = trimmed;
+        notifyListeners();
+        return loc;
+      }
+    } catch (e) {
+      debugPrint("Direct geocoding failed for '$trimmed': $e");
+    }
+
+    // 2. Clean unit/suite identifiers (e.g. "#100", "Apt 2B", "Suite 300", "Unit A") and retry
+    String cleaned = trimmed
+        .replaceAll(RegExp(r'#\d+[\w-]*', caseSensitive: false), '')
+        .replaceAll(RegExp(r'\b(apt|suite|ste|unit|bldg|building|floor|fl)\b\s*\w+', caseSensitive: false), '')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+
+    if (cleaned.isNotEmpty && cleaned != trimmed) {
+      try {
+        List<Location> locations = await locationFromAddress(cleaned);
+        if (locations.isNotEmpty) {
+          final loc = LatLng(locations.first.latitude, locations.first.longitude);
+          _pickedLocation = loc;
+          _address = trimmed;
+          notifyListeners();
+          return loc;
+        }
+      } catch (e) {
+        debugPrint("Cleaned geocoding failed for '$cleaned': $e");
+      }
+    }
+
+    // 3. Fallback: Try trailing address parts (e.g., city, state, postal code)
+    try {
+      final parts = trimmed.split(',');
+      if (parts.length > 1) {
+        final fallbackAddress = parts.sublist(1).join(',').trim();
+        if (fallbackAddress.isNotEmpty) {
+          List<Location> locations = await locationFromAddress(fallbackAddress);
+          if (locations.isNotEmpty) {
+            final loc = LatLng(locations.first.latitude, locations.first.longitude);
+            _pickedLocation = loc;
+            _address = trimmed;
+            notifyListeners();
+            return loc;
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint("Fallback geocoding failed: $e");
+    }
+
+    return _pickedLocation;
+  }
+
   Future<void> getAddressFromLatLng(LatLng position) async {
     try {
       List<Placemark> placemarks = await placemarkFromCoordinates(

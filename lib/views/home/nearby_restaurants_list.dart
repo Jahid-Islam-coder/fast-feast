@@ -48,21 +48,7 @@ class NearbyRestaurantsList extends StatelessWidget {
             itemCount: restaurantProvider.restaurants.length,
             itemBuilder: (context, index) {
               RestaurantDetailModel restaurant = restaurantProvider.restaurants[index] as RestaurantDetailModel;
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    PageTransition(
-                      type: PageTransitionType.rightToLeft,
-                      child: RestaurantDetailScreen(
-                        restaurant: restaurant,
-                        restaurantId: restaurant.id,
-                      ),
-                    ),
-                  );
-                },
-                child: RestaurantWidget(restaurant: restaurant),
-              );
+              return RestaurantWidget(restaurant: restaurant);
             },
           );
         }
